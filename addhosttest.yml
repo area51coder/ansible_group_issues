@@ -4,12 +4,12 @@
   tasks:
     - name: Update Ansible Tower inventory
       uri:
-       url: https://192.168.29.134/api/v2/groups/11/hosts/
+       url: https://192.168.29.134/api/v2/groups/11/hosts/41
        user: admin
        password: "{{ ansible_pass }}"
        method: DELETE
        body: '{ "name" : "{{FQDN}}" }'
        force_basic_auth: yes
-       status_code: 405
+       status_code: 200
        body_format: json
        validate_certs: no
