@@ -1,4 +1,8 @@
 ---
+  - name: VMware VM Inventory Generator
+    hosts: localhost
+    gather_facts: no
+tasks:   
   - name: collect VMs in specific folder
     community.vmware.vmware_vm_info:
          validate_certs: False
