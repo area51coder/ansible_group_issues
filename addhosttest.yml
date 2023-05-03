@@ -8,9 +8,9 @@
        user: admin
        password: "{{ ansible_pass }}"
        method: DELETE
-      ignore_errors: yes 
        body: '{ "name" : "{{FQDN}}" }'
        force_basic_auth: yes
        status_code: 200
        body_format: json
        validate_certs: no
+       ignore_errors: yes
