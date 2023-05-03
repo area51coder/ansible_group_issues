@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Update Ansible Tower inventory
+      uri:
+       url: https://192.168.29.134/api/v2/groups/{{GROUP1}}/hosts/
+       user: admin
+       password: admin
+       method: "{{ ansible_pass }}"
+       body: '{ "name" : "{{FQDN}}" }'
+       force_basic_auth: yes
+       status_code: 201
+       body_format: json
+       validate_certs: no
