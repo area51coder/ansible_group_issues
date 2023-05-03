@@ -4,7 +4,7 @@
     gather_facts: no
     tasks:   
       - name: collect VMs in specific folder
-        community.vmware.vmware_vm_info:
+        vmware_vm_facts:
              validate_certs: False
              hostname: "{{ vcenter_hostname }}"
              username: "{{ vcenter_username }}"
