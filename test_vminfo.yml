@@ -2,31 +2,31 @@
   - name: VMware VM Inventory Generator
     hosts: localhost
     gather_facts: no
-tasks:   
-  - name: collect VMs in specific folder
-    community.vmware.vmware_vm_info:
-         validate_certs: False
-         hostname: "{{ vcenter_hostname }}"
-         username: "{{ vcenter_username }}"
-         password: "{{ vcenter_passwd }}"
-    #     folder: "{{ vcenter_folder }}"
-    delegate_to: localhost
-    register: vm_info
-
-  - name: print VM info
-    debug:
-       msg: "{{ item['guest_name'] }}"
-    with_items: "{{ vm_info.virtual_machines }}"
-
-  - name: Show virtual machines guest_name in job log
-    ansible.builtin.debug:
-      msg: "{{ item['guest_name'] }}"
-    with_items: "{{ vm_info.virtual_machines }}"
-  - name: Print virtual machines guest_name in output file
-    ansible.builtin.copy: # should really use template here
-      content: |
-          Virtual Machine Names
-          {% for vm in vm_info.virtual_machines %}
-          - {{ vm['guest_name'] }}
-          {% endfor %}
-      dest: /tmp/virtual_machine_names.txt
+    tasks:   
+      - name: collect VMs in specific folder
+        community.vmware.vmware_vm_info:
+             validate_certs: False
+             hostname: "{{ vcenter_hostname }}"
+             username: "{{ vcenter_username }}"
+             password: "{{ vcenter_passwd }}"
+        #     folder: "{{ vcenter_folder }}"
+        delegate_to: localhost
+        register: vm_info
+     
+      - name: print VM info
+        debug:
+           msg: "{{ item['guest_name'] }}"
+        with_items: "{{ vm_info.virtual_machines }}"
+     
+      - name: Show virtual machines guest_name in job log
+        ansible.builtin.debug:
+          msg: "{{ item['guest_name'] }}"
+        with_items: "{{ vm_info.virtual_machines }}"
+      - name: Print virtual machines guest_name in output file
+        ansible.builtin.copy: # should really use template here
+          content: |
+              Virtual Machine Names
+              {% for vm in vm_info.virtual_machines %}
+              - {{ vm['guest_name'] }}
+              {% endfor %}
+          dest: /tmp/virtual_machine_names.txt
