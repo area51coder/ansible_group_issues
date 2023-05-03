@@ -29,4 +29,4 @@
               {% for vm in vm_info.virtual_machines %}
               - {{ vm['guest_name'] }}
               {% endfor %}
-          dest: /tmp/virtual_machine_names.txt
+          dest: /etc/ansible/virtual_machine_names.txt
