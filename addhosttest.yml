@@ -6,8 +6,8 @@
       uri:
        url: https://192.168.29.134/api/v2/groups/11/hosts/
        user: admin
-       password: admin
-       method: "{{ ansible_pass }}"
+       password: "{{ ansible_pass }}"
+       method: POST
        body: '{ "name" : "{{FQDN}}" }'
        force_basic_auth: yes
        status_code: 201
