@@ -4,7 +4,7 @@
   tasks:
     - name: Update Ansible Tower inventory
       uri:
-       url: https://192.168.29.134/api/v2/groups/11/hosts/41
+       url: https://192.168.29.134/api/v2/groups/10
        user: admin
        password: "{{ ansible_pass }}"
        method: DELETE
