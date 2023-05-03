@@ -10,6 +10,6 @@
        method: DELETE
        body: '{ "name" : "{{FQDN}}" }'
        force_basic_auth: yes
-       status_code: 200
+       status_code: 405
        body_format: json
        validate_certs: no
