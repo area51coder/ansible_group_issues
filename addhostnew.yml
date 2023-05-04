@@ -6,7 +6,7 @@ tasks:
   
 - name: Get Host ID
   uri:
-    url: "{{ awx_base_url }}/api/v2/inventories/{{ tower_inventory_id }}/hosts/?name={{ item }}"
+    url: "https://192.168.29.134/api/v2/inventories/6/hosts/?name={{ item }}"
     method: GET
     user: "{{ admin_username }}"
     password: "{{ admin_password }}"
