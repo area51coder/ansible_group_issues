@@ -74,14 +74,14 @@
       loop_control:
         label: "{{ item.instance.hw_name }}"
 
-    - name: Generate VM inventory report(html)
-      template:
-        src: report_html.j2
-        dest: /etc/ansible/reports/vcenter_inventory.html
-      when: export_type == "html"
+  #  - name: Generate VM inventory report(html)
+   #   template:
+    #    src: report_html.j2
+     #   dest: /etc/ansible/reports/vcenter_inventory.html
+      #when: export_type == "html"
 
     - name: Generate VM inventory report(csv)
       template:
         src: report_csv.j2
-        dest: vcenter_inventory.csv
+        dest: /etc/ansible/reports/vcenter_inventory.csv
       when: export_type == "csv"
