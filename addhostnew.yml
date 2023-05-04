@@ -15,3 +15,24 @@
             Content-Type: "application/json"
         register: host_result
         failed_when: host_result.status != 200 or host_result.json.count != 1  
+        
+      - name: "Set host id for {{ item }}"
+        set_fact:
+          body: "{ \"id\" : {{ host_result.json.results[0].id | int }} }"
+      
+      - name: "Set host id for {{ item }}"
+        set_fact:
+          body: "{ \"disassociate\" : {{ host_result.json.results[0].id | int }}, \"id\" : {{ host_result.json.results[0].id | int }} }"
+        when: action == "REMOVE_FROM_GROUP"
+      
+      - name: Update Ansible Tower inventory
+        uri:
+          url: "https://192.168.29.134/api/v2/inventories/6/groups/hosts/"
+          user: "{{ admin_username }}"
+          password: "{{ admin_password }}"
+          method: "POST"
+          body: "{{ body }}"
+          force_basic_auth: yes
+          status_code: 204
+          body_format: json
+          validate_certs: no
