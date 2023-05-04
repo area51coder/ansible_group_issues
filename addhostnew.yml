@@ -1,9 +1,9 @@
 ---
-  tasks:
   - name: Update Inventory
     hosts: localhost
     gather_facts: False
-  
+    
+  tasks:
   - name: Get Host ID
     uri:
       url: "https://192.168.29.134/api/v2/inventories/6/hosts/?name={{ item }}"
