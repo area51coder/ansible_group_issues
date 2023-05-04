@@ -1,0 +1,18 @@
+---
+tasks:
+- name: Update Inventory
+  hosts: localhost
+  gather_facts: False
+  
+- name: Get Host ID
+  uri:
+    url: "{{ awx_base_url }}/api/v2/inventories/{{ tower_inventory_id }}/hosts/?name={{ item }}"
+    method: GET
+    user: "{{ admin_username }}"
+    password: "{{ admin_password }}"
+    force_basic_auth: yes
+    validate_certs: no
+    headers:
+      Content-Type: "application/json"
+  register: host_result
+  failed_when: host_result.status != 200 or host_result.json.count != 1
