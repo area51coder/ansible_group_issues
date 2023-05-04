@@ -2,17 +2,16 @@
   - name: Update Inventory
     hosts: localhost
     gather_facts: False
-    
-  tasks:
-  - name: Get Host ID
-    uri:
-      url: "https://192.168.29.134/api/v2/inventories/6/hosts/?name={{ item }}"
-      method: GET
-      user: "{{ admin_username }}"
-      password: "{{ admin_password }}"
-      force_basic_auth: yes
-      validate_certs: no
-      headers:
-        Content-Type: "application/json"
-    register: host_result
-    failed_when: host_result.status != 200 or host_result.json.count != 1  
+    tasks:
+      - name: Get Host ID
+        uri:
+          url: "https://192.168.29.134/api/v2/inventories/6/hosts/?name={{ item }}"
+          method: GET
+          user: "{{ admin_username }}"
+          password: "{{ admin_password }}"
+          force_basic_auth: yes
+          validate_certs: no
+          headers:
+            Content-Type: "application/json"
+        register: host_result
+        failed_when: host_result.status != 200 or host_result.json.count != 1  
