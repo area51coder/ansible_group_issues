@@ -1,0 +1,30 @@
+---
+- name: VMware VM Inventory Generator
+  hosts: localhost
+  gather_facts: no
+#  vars:
+ #   hostname: 192.168.29.195
+  #  username: administrator@vsphere.local
+   # password: password
+    #export_type: html # choices['html', 'csv']
+  tasks:
+    - name: Gather fact for all vm
+      vmware_vm_facts:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+      register: vms
+
+    - name: Gather snapshot information about the virtual machine in the given vCenter
+      vmware_guest_snapshot_info:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        datacenter: DC
+        name: "{{ item.guest_name }}"
+      register: gather_facts_for_vm_summary_result
+      loop: "{{ vms.virtual_machines }}"
+      loop_control:
+        label: "{{ item.guest_name }}"
