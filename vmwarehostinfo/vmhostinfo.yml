@@ -12,8 +12,8 @@
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         validate_certs: no
-        gather_vm_hosts: yes
-        gather_nic_info: yes
-        gather_vswitch_info: yes
+       # gather_vm_hosts: yes
+      #  gather_nic_info: yes
+       # gather_vswitch_info: yes
       register: vmware_info
       with_items: "{{ vcenter_servers }}"
