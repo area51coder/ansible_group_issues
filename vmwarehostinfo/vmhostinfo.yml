@@ -4,7 +4,7 @@
   connection: local
   vars_files:
     - vars2.yml
-	
+
   tasks:
     - name: Connect to vCenter servers and retrieve ESXi host information
       vmware_host:
