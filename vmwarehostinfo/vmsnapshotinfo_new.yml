@@ -20,7 +20,7 @@
         password: "{{ vcenter_password }}"
         datacenter: DC
         folder: /DC/vm/
-        name: ESXi6.7
+        name: ESX6.7-1
        # name: "{{ item.guest_name }}"
         validate_certs: no
       register: snapshot_info
@@ -32,6 +32,6 @@
       #delegate_to: localhost
       #register: snapshot_info
     - name: debug snapshotinfo  
-      debug: var=snapshot_info.results.guest_snapshots.current_snapshot
+      debug: var=snapshot_info.guest_snapshots.current_snapshot
       
       
