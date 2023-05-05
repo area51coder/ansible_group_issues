@@ -5,12 +5,24 @@
  # vars:
 
   tasks:
-    - name: Gather snapshot information about the virtual machine in the given vCenter
-      vmware_guest_snapshot_facts:
+    - name: Gather fact for all vm
+      vmware_vm_facts:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         validate_certs: no
+      register: vms
+      
+    - name: Gather snapshot information about the virtual machine using MoID
+      community.vmware.vmware_guest_snapshot_info:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
         datacenter: DC
-        folder: /DC/vm/
-      register: gather_facts_for_vm_summary_result
+        name: ESX6.7-1
+      delegate_to: localhost
+      register: snapshot_info
+      debug:
+        msg: vms.virtual_machines
+      
+      
