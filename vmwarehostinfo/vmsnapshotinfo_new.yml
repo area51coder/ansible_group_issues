@@ -22,6 +22,7 @@
         folder: /DC/vm/
         name: "{{ item.guest_name }}"
       register: snapshotinfo
+      validate_certs: no
       loop: "{{ vms.virtual_machines }}"
       loop_control:
         label: "{{ item.guest_name }}"
