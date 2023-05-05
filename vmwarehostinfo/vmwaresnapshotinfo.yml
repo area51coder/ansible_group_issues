@@ -23,6 +23,7 @@
         password: "{{ vcenter_password }}"
         validate_certs: no
         datacenter: DC
+        folder: /DC/vm/
         name: "{{ item.guest_name }}"
       register: gather_facts_for_vm_summary_result
       loop: "{{ vms.virtual_machines }}"
