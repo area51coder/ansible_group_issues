@@ -6,14 +6,14 @@
  #   - vars2.yml
   #  - vcenter_creds.yml
 
-tasks:
-- name: Gather snapshot information about the virtual machine in the given vCenter
-  vmware_guest_snapshot_info:
-    hostname: "{{ vcenter_hostname }}"
-    username: "{{ vcenter_username }}"
-    password: "{{ vcenter_password }}"
- #   datacenter: "{{ datacenter_name }}"
-  #  folder: "/{{ datacenter_name }}/vm/"
-   # name: "{{ guest_name }}"
-  delegate_to: localhost
-  register: snapshot_info
+  tasks:
+  - name: Gather snapshot information about the virtual machine in the given vCenter
+    vmware_guest_snapshot_info:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+ #     datacenter: "{{ datacenter_name }}"
+  #    folder: "/{{ datacenter_name }}/vm/"
+   #   name: "{{ guest_name }}"
+    delegate_to: localhost
+    register: snapshot_info
