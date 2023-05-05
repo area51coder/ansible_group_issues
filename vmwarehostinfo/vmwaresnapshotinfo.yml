@@ -38,7 +38,7 @@
         validate_certs: no
         datacenter: DC
         name: "{{ item.guest_name }}"
-      when: gather_facts_for_vm_summary_result.ansible_loop_var.guest_snapshots.current_snapshot.creation_time == "2023-05-02"
+      when: creation_time == "2023-05-02"
       register: for_snapshot_vms
       loop: "{{ vms.virtual_machines }}"
       loop_control:
