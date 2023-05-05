@@ -40,12 +40,15 @@
         datacenter: DC
         name: "{{ item.guest_name }}"
       register: for_snapshot_vms
-    - debug:
-        msg: "{{ item.creation_time }}" 
-      loop: "{{ gather_facts_for_vm_summary_result.creation_time }}"
-      when:
+      loop: "{{ vms.virtual_machines }}"
+      loop_control:
+        label: "{{ item.guest_name }}"
+   # - debug:
+    #    msg: "{{ item.creation_time }}" 
+    # loop: "{{ gather_facts_for_vm_summary_result.creation_time }}"
+      #when:
        # - item.name is defined
-        - item.creation_time == 2023-05-02    
+       # - item.creation_time == 2023-05-02    
  #     when: snapshot_date
   #    loop: "{{ vms.virtual_machines }}"
    #   loop_control:
