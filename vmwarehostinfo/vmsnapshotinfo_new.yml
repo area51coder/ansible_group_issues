@@ -21,6 +21,7 @@
         datacenter: DC
         folder: /DC/vm/
         name: ESX6.7-1
+        validate_certs: no
       delegate_to: localhost
       register: snapshot_info
     - name: debug snapshotinfo  
