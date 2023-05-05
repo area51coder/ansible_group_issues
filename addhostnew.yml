@@ -23,7 +23,7 @@
       - name: "Set host id for {{ item }}"
         set_fact:
           body: "{ \"disassociate\" : {{ host_result.json.results[0].id | int }}, \"id\" : {{ host_result.json.results[0].id | int }} }"
-        when: selected_action == "REMOVE_FROM_GROUP"
+        when: "selected_action" == "REMOVE_FROM_GROUP"
       
       - name: Update Ansible Tower inventory
         uri:
