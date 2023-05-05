@@ -23,6 +23,6 @@
       delegate_to: localhost
       register: snapshot_info
       debug:
-        msg: vms.virtual_machines
+        msg: snapshot_info.guest_snapshots
       
       
