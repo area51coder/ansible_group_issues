@@ -22,6 +22,7 @@
         name: ESX6.7-1
       delegate_to: localhost
       register: snapshot_info
+    - name: debug snapshotinfo  
       debug:
         msg: snapshot_info.guest_snapshots
       
