@@ -14,7 +14,7 @@
       register: vms
       
     - name: Gather snapshot information about the virtual machine using MoID
-      community.vmware.vmware_guest_snapshot_info:
+      vmware_guest_snapshot_info:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
