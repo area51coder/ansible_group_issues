@@ -25,7 +25,6 @@
       delegate_to: localhost
       register: snapshot_info
     - name: debug snapshotinfo  
-      debug:
-        msg: var=vms
+      debug: var=vms
       
       
