@@ -2,7 +2,8 @@
 - name: VMware VM Inventory Generator
   hosts: localhost
   gather_facts: no
-#  vars:
+  vars:
+    snapshot_date : 2023-05-02
  #   hostname: 192.168.29.195
   #  username: administrator@vsphere.local
    # password: password
@@ -38,7 +39,7 @@
         validate_certs: no
         datacenter: DC
         name: "{{ item.guest_name }}"
-      when: creation_time == "2023-05-02"
+      when: snapshot_date
       register: for_snapshot_vms
       loop: "{{ vms.virtual_machines }}"
       loop_control:
