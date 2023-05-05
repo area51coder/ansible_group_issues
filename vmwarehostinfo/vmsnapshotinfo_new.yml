@@ -31,6 +31,6 @@
       #delegate_to: localhost
       #register: snapshot_info
     - name: debug snapshotinfo  
-      debug: var=snapshot_info.guest_snapshots.current_snapshot.creation_time
+      debug: var=snapshot_info
       
       
