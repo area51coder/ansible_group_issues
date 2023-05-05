@@ -13,6 +13,7 @@
       username: "{{ vcenter_username }}"
       password: "{{ vcenter_password }}"
       datacenter: DC
+      name: ESX6.7-1
   #    folder: "/{{ datacenter_name }}/vm/"
    #   name: "{{ guest_name }}"
     delegate_to: localhost
