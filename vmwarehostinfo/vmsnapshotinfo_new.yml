@@ -19,6 +19,7 @@
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         datacenter: DC
+        folder: /DC/vm/
         name: ESX6.7-1
       delegate_to: localhost
       register: snapshot_info
