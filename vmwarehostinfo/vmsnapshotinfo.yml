@@ -15,5 +15,5 @@
  #   datacenter: "{{ datacenter_name }}"
   #  folder: "/{{ datacenter_name }}/vm/"
    # name: "{{ guest_name }}"
-  delegate_to: localhost
+  #delegate_to: localhost
   register: snapshot_info
