@@ -20,12 +20,13 @@
         password: "{{ vcenter_password }}"
         datacenter: DC
         folder: /DC/vm/
-        name: "{{ item.guest_name }}"
+        name: ESXi6.7
+       # name: "{{ item.guest_name }}"
         validate_certs: no
       register: snapshot_info
-      loop: "{{ vms.virtual_machines }}"
-      loop_control:
-        label: "{{ item.guest_name }}"
+     # loop: "{{ vms.virtual_machines }}"
+     # loop_control:
+      #  label: "{{ item.guest_name }}"
         #name: ESX6.7-1
         #validate_certs: no
       #delegate_to: localhost
