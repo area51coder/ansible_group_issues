@@ -2,10 +2,6 @@
 - name: Enable SSH on ESXi Hosts
   hosts: localhost
   connection: local
-  vars:
-   # hostname: 192.168.29.195
-    vcenter_username: administrator@vsphere.local
-  #  vcenter_password: password
   vars_files:
     - vars2.yml
 	
