@@ -1,0 +1,19 @@
+---
+- name: Enable SSH on ESXi Hosts
+  hosts: localhost
+  connection: local
+#  vars_files:
+ #   - vars2.yml
+  #  - vcenter_creds.yml
+
+
+- name: Gather snapshot information about the virtual machine in the given vCenter
+  community.vmware.vmware_guest_snapshot_info:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+ #   datacenter: "{{ datacenter_name }}"
+  #  folder: "/{{ datacenter_name }}/vm/"
+   # name: "{{ guest_name }}"
+  delegate_to: localhost
+  register: snapshot_info
