@@ -26,6 +26,6 @@
       register: snapshot_info
     - name: debug snapshotinfo  
       debug:
-        msg: vms
+        msg: var=vms
       
       
