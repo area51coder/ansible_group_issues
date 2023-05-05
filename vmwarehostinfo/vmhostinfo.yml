@@ -7,7 +7,7 @@
 
   tasks:
     - name: Connect to vCenter servers and retrieve ESXi host information
-      vmware_host_facts:
+      vmware_vm_facts:
         hostname: "{{ item }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
