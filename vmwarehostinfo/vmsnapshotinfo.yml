@@ -12,7 +12,7 @@
       hostname: "{{ vcenter_hostname }}"
       username: "{{ vcenter_username }}"
       password: "{{ vcenter_password }}"
- #     datacenter: "{{ datacenter_name }}"
+      datacenter: DC
   #    folder: "/{{ datacenter_name }}/vm/"
    #   name: "{{ guest_name }}"
     delegate_to: localhost
