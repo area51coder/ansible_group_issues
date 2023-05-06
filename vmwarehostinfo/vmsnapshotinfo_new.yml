@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   vars:
-  message: warning
+    message: warning
 
   tasks:
     - name: Gather fact for all vm
