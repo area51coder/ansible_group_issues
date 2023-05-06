@@ -2,7 +2,8 @@
 - name: VMware VM Inventory Generator
   hosts: localhost
   gather_facts: no
- # vars:
+  vars:
+  message: warning
 
   tasks:
     - name: Gather fact for all vm
@@ -33,7 +34,7 @@
       #register: snapshot_info
     - name: debug snapshotinfo  
       debug: 
-        msg: "{{Warning}}, {{ snapshot_info.guest_snapshots.current_snapshot.creation_time }}"
+        msg: "{{ message }}, {{ snapshot_info.guest_snapshots.current_snapshot.creation_time }}"
       when: snapshot_info.guest_snapshots.current_snapshot.creation_time
       
       
