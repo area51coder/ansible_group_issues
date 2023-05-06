@@ -33,7 +33,7 @@
       #register: snapshot_info
     - name: debug snapshotinfo  
       debug: 
-        msg: "{{ snapshot_info.guest_snapshots.current_snapshot.creation_time }}"
+        msg: "{{Warning}}, {{ snapshot_info.guest_snapshots.current_snapshot.creation_time }}"
       when: "'2023' in snapshot_info" 
       
       
