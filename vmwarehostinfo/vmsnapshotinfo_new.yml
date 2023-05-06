@@ -32,6 +32,6 @@
       #delegate_to: localhost
       #register: snapshot_info
     - name: debug snapshotinfo  
-      debug: var=snapshot_info.guest_snapshots.current_snapshot
+      debug: msg: {{ snapshot_info.guest_snapshots }}
       
       
