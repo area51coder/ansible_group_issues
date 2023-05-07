@@ -28,6 +28,21 @@
       loop: "{{ vms.virtual_machines }}"
       loop_control:
         label: "{{ item.guest_name }}"
+        
+    - name: Gather snapshot information about the virtual machine using MoID
+      vmware_guest_snapshot_info:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        datacenter: DC
+        folder: /DC/vm/
+        #name: ESX6.7-1
+        name: "{{ item.guest_name }}"
+        validate_certs: no
+      register: snapshot_info_new
+      loop: "{{ vms.virtual_machines }}"
+      loop_control:
+        label: "{{ item.guest_name }}"        
       when: snapshot_info.guest_snapshots.current_snapshot.name=="patching"
         #name: ESX6.7-1
         #validate_certs: no
