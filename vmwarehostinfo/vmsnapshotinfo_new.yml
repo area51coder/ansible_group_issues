@@ -43,7 +43,7 @@
       loop: "{{ vms.virtual_machines }}"
       loop_control:
         label: "{{ item.guest_name }}"        
-      when: snapshot_info.guest_snapshots.current_snapshot.name=="patching"
+      when: snapshot_info.ansible_loop_var.guest_snapshots.current_snapshot.name=="patching"
         #name: ESX6.7-1
         #validate_certs: no
       #delegate_to: localhost
