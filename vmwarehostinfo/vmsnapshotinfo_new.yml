@@ -33,8 +33,7 @@
       #delegate_to: localhost
       #register: snapshot_info
     - name: debug snapshotinfo  
-      debug: 
-        msg: "{{ message }}, {{ snapshot_info }}"
+      debug: var=snapshot_info
    #     msg: "{{ message }}, {{ snapshot_info.item.guest_snapshots.current_snapshot.creation_time }}"
     #  when: snapshot_info.item.guest_snapshots.current_snapshot.name=="patching"
       
