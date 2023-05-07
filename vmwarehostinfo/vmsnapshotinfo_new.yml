@@ -28,12 +28,13 @@
       loop: "{{ vms.virtual_machines }}"
       loop_control:
         label: "{{ item.guest_name }}"
+      when: snapshot_info.item.guest_snapshots.current_snapshot.name=="patching"
         #name: ESX6.7-1
         #validate_certs: no
       #delegate_to: localhost
       #register: snapshot_info
-    - name: debug snapshotinfo  
-      debug: var=snapshot_info
+    #- name: debug snapshotinfo  
+    #  debug: var=snapshot_info
    #     msg: "{{ message }}, {{ snapshot_info.item.guest_snapshots.current_snapshot.creation_time }}"
     #  when: snapshot_info.item.guest_snapshots.current_snapshot.name=="patching"
       
