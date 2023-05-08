@@ -17,7 +17,7 @@
         debug:
            msg: "{{ item['guest_name'] }}"
         with_items: "{{ vm_info.virtual_machines }}"
-        when: power_state==poweredOff
+        when: vm_info.virtual_machines.power_state==poweredOff
      
       - name: Show virtual machines guest_name in job log
         ansible.builtin.debug:
