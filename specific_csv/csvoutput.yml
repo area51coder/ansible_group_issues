@@ -1,0 +1,20 @@
+---
+- name: VMware VM Inventory Generator
+  hosts: list_host
+  gather_facts: no
+  vars:
+    list_host: vmnames.txt
+  tasks:
+    - name : check date
+      shell: date  
+ 
+    - name: Add mappings to /etc/hosts
+      lineinfile:
+         insertafter: EOF
+         dest: ~/test.csv
+         line: "{{ item.0 }},{{ item.1 }},{{ item.2 }}"
+
+      with_together:
+         - "{{ Test1 }}"
+         - "{{ Test2 }}"
+         - "{{ Test3 }}"
