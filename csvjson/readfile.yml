@@ -4,8 +4,8 @@
     gather_facts: no
     var:
       file: file.txt
-task:       
-  - name: Display all cluster names
-    ansible.builtin.debug:
-      var: file
-    loop: "{{ domain_definition | community.general.json_query('domain.cluster[*].name') }}"    
+    task:       
+      - name: Display all cluster names
+        ansible.builtin.debug:
+          var: file
+        loop: "{{ domain_definition | community.general.json_query('domain.cluster[*].name') }}"    
