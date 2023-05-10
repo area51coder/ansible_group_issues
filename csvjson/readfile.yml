@@ -4,7 +4,7 @@
     gather_facts: no
     vars:
       file: file.txt
-    task:       
+    tasks:       
       - name: Display all cluster names
         ansible.builtin.debug:
           var: file
