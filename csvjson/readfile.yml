@@ -2,7 +2,7 @@
   - name: VMware VM Inventory Generator
     hosts: localhost
     gather_facts: no
-    var:
+    vars:
       file: file.txt
     task:       
       - name: Display all cluster names
