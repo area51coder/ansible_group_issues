@@ -1,0 +1,38 @@
+windows server 2008
+Centos7_tower
+CentOS_Node1_192.168.29.237
+windows server 2012
+Centos 7-test new-29April2023
+ESXi6.7
+vsim_esx-DOT9.5P6-cm_30Apr
+AD-Win-practice
+New Virtual Machine
+client 1
+Centos-7-Ansible new lab_181
+testvm_1
+SE923_6_suse11_x86_64_vapp_OVF10
+Ubuntu_Node2
+vm18
+CentOS_Terraform_192.168.29.165
+Centos7_client.63
+vsim_esx-DOT9.5P6-cm
+VMware vCenter Server Appliance_192.168.29.195
+windows server 2012 client
+testvm_2
+Clone_VM2
+Window2012client1_192.168.29.201
+CentOS Controller_192.168.29.186
+win2008dns
+vm1
+testvm_3
+Win2012_172_domain_AD
+windows10
+win10
+CentosTowerRedHat_192.168.29.71_134
+Centos7_ansible_23Nov_2022
+windows_test
+ESX6.7-2
+ESX6.7-1
+CentOS7_docker_kube_terraform_192.168.29.108
+New Virtual Machine 1
+Centos7awxgitlab_192.168.29.54
