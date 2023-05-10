@@ -28,6 +28,6 @@
           content: |
               Virtual Machine Names
               {% for vm in vm_info.virtual_machines %}
-              - {{ vm['guest_name'] }}
+              {{ vm['guest_name'] }}
               {% endfor %}
           dest: /etc/ansible/reports/virtual_machine_names.txt
