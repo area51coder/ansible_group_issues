@@ -30,7 +30,8 @@
               {% for vm in vm_info.virtual_machines %}
               {{ vm['guest_name'] }}
               {% endfor %}
-          dest: /etc/ansible/reports/virtual_machine_names.txt
+          #dest: /etc/ansible/reports/virtual_machine_names.txt
+        register: vmnames  
           
       - name: Gather facts for vm summary
         vmware_guest_facts:
