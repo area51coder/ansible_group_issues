@@ -6,6 +6,6 @@
   tasks:
     - name : check date
       shell: date
-  tasks:
-  - debug:
-      var: ansible_facts      
+    - name: Collect Facts
+      - debug:
+        var: ansible_facts      
